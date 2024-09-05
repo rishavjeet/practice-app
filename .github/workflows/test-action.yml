@@ -1,0 +1,13 @@
+name: test-action
+on:
+	pull_request:
+		types: 
+			- closed
+
+jobs:
+	if_merged:
+		if: github.event.pull_request.merged == true
+		runs_on: ubuntu_latest
+		steps:
+		- run: |
+			echo The PR is merged
