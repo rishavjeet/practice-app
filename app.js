@@ -7,7 +7,8 @@ app.get('/getData',(req,res)=>{
     res.status(200).json(
 		{
 			Message:"Hello World",
-			Data: "This is a Dummy data"
+			Data: "This is a Dummy data",
+			Code: 200
 		}
 	);    
 })
