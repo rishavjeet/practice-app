@@ -1,13 +1,16 @@
 name: test-action
 on:
   pull_request:
+    branches: [master]
     types:
-      - closed
+      - opened
 
 jobs:
-  if_merged:
-    if: github.event.pull_request.merged == true
+  test-endpoint:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo The PR is merged
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        uses: npm install
+      - name: Run Test
+        uses: npm run test
